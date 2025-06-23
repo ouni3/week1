@@ -1,0 +1,41 @@
+GET http://localhost:9000/
+Accept: application/json
+
+###
+POST http://localhost:9000/students/
+Content-Type: application/json
+
+{
+  "name": "李四",
+  "student_id": 1021
+}
+
+
+###
+POST http://localhost:9000/predict/
+Content-Type: application/json
+
+{
+  "url": "https://upload.wikimedia.org/wikipedia/commons/d/da/Cat_tongue_macro.jpg"
+}
+
+###
+GET http://localhost:9000/students/
+Accept: application/json
+
+###
+GET http://localhost:9000/students/1001
+Accept: application/json
+
+###
+PUT http://localhost:9000/students/1687
+Content-Type: application/json
+
+{
+  "name": "李二",
+  "student_id": 1687
+}
+
+###
+DELETE http://localhost:9000/students/1001
+Accept: application/json 
