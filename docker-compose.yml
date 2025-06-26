@@ -1,0 +1,25 @@
+
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: mysecretpassword
+      POSTGRES_DB: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  web:
+    build: .
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgresql://postgres:mysecretpassword@db:5432/postgres
+    ports:
+      - "9000:9000"
+    restart: always
+
+volumes:
+  pgdata: 
